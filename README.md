@@ -1,10 +1,8 @@
 ![DANELOGO](https://github.com/sandboxDANE/IPM-Pobrezamultidimensional/blob/cf8fa865e1d6deee846bc9698fc1a1920c894b76/Figuras/Logo-DANE-color-2019.jpg)
 
 
-# Pobreza-Multidimensional-IPM-FASE-II
-En esta sección presentamos los resultados de la segunda versión del proyecto de estimación de pobreza multidimensional usando imágenes satelitales,
-la principal innovación de este ejercicio es inclusión de las imágenes del 2016 al 2020 para tener una visión en el tiempo de los cambios del IPM a
-nivel de manzanas.
+# Pobreza-Multidimensional-IPM-FASE-III
+En esta sección presentamos la metodología de la tercera versión del proyecto de estimación de pobreza multidimensional usando imágenes satelitales, a comparación de los ejercicios anteriores, en esta versión se implemetaron algunas modificiaciones en el uso de las imágenes y en redes entrenadas.
 
 ## Introducción
 # Estimación Pobreza multidimensional 
@@ -42,14 +40,19 @@ El desafio, se centra en encontrar un estimación para las zonas en donde la inf
 Los resultados del IPM censal solo son posibles en años en donde se realicen censos. Por tanto, este ejercicio  consiste en determinar una medición de estas zonas para los años 2016 a 2020.
 
 3. [Piloto DataSandbox:](#piloto) 
-Este piloto consiste en un ejercicio experimental para obtener predicciones del IPM usando los ajustes realizados en la Fase I (https://github.com/sandboxDANE/IPM-Pobrezamultidimensional).  Esta sección presenta un proyecto piloto en el cual se desarrolló al final un visor   de las diferentes predicciones del IPM. Las fases de esta implementación se resumen en el siguiente gráfico:
-<img src="images/transfer_learning.PNG">  
+Este piloto consiste en un ejercicio experimental para obtener predicciones del IPM usando los ajustes realizados en la Fase II (https://github.com/sandboxDANE/Pobreza-Multidimensional-IPM-FASE-II). 
 Donde la fase 3 es ejecutada en la plataforma [DataSanbox](https://sandbox.datos.gov.co/#!/inicio) suministrada por el [Ministerio de Tecnologías de la Información y las Comunicaciones](https://www.mintic.gov.co/portal/inicio/)
 
-4. [Conjuntos de datos:](#insumos) Se usarón insumos censales, marco geostadítistico nacional, imágenes satelitales y covariados extraidos de las mismas. Sin embargo, en esta plataforma solo se comparten bases alfanúmericas.    
+4. [Conjuntos de datos:](#insumos) Se usarón insumos censales, marco geostadítistico nacional, imágenes satelitales de Planet Scope. S
 
-5. [Metodología:](#Metodología) En el siguiente enlace podra descargar el documento metodológico:  [metodogía](https://www.dane.gov.co/files/investigaciones/experimentales/ipm/IPM-documento-metodologico.pdf)
-6. [Visualización resultados:](#visualizacion) Producto del análisis, se obtiene una distribución del IPM para todo el territorio nacional, los siguientes gráficos se muestra el comportamiento del IPM predicho usando solo información de las imágenes satelitales:
+5. [Metodología:](#Metodología) Entrenar modelos de aprendizaje profundo con imágenes geoespaciales es difícil. Debemos transformar las imágenes para alimentar la red neuronal teniendo en cuenta el lado geoespacial de los datos.
+
+En esta sesión, vamos a ver cómo entrenar e implementar fácilmente redes de segmentación profunda como U-NET con imágenes geoespaciales utilizando la biblioteca de código abierto SatProc. Su objetivo es detectar y clasificar diferentes objetos de interés mediante imágenes satelitales y redes neuronales profundas, como áreas quemadas, evaluaciones informales o vertederos de desechos a través de áreas masivas de imágenes satelitales.
+
+El proceso se divide en cuatro pasos principales. El primer paso es entrenar el modelo de aprendizaje automático. El tercero es la predicción del modelo sobre una región de interés. Y el último da como resultado el posprocesamiento y la presentación. Cada uno se describe con más detalle a continuación.
+<img src="images/mapa_sp18_GBTR_2019.png"> 
+
+7. [Visualización resultados:](#visualizacion) 
 
 2016 
 <img src="images/mapa_sp16_GBTR_2016.png"> 
